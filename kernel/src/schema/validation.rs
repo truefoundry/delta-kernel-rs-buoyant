@@ -40,9 +40,9 @@ pub(crate) fn validate_schema(
 /// Collects all validation errors so the caller gets a complete list of violations in a
 /// single error message.
 ///
-/// Note: `StructType::try_new` already catches same-level case-insensitive duplicates.
-/// This validator additionally detects cross-level path duplicates and catches schemas
-/// built with `new_unchecked`.
+/// Note: `StructType::try_new` catches same-level exact duplicates. This validator
+/// additionally detects case-insensitive duplicates, cross-level path duplicates, and
+/// catches schemas built with `new_unchecked`.
 struct SchemaValidator {
     cm_enabled: bool,
     seen_paths: HashSet<String>,
